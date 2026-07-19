@@ -4,6 +4,9 @@ ex*
 *.out
 *.exe
 
+# keep .c files
+!*.c
+
 # Build artifacts
 build/
 dist/
