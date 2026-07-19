@@ -1,0 +1,32 @@
+# Compiled binaries
+ex*
+*.o
+*.out
+*.exe
+
+# Build artifacts
+build/
+dist/
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.tmp
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# Debugging
+core
+*.core
+*.dSYM/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
