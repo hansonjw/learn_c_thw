@@ -47,3 +47,12 @@ int main(int argc, char *argv[])
 - `argv[1]` = "Justin"
 - `argv[2]` = "49"
 - `argv[1]` = "Oregon"
+
+### Char and Strings
+- Byte = 8 bits
+- char = 1 byte (in practice)
+- Byte array = char[] or unsigned char[]
+- There is no `string` type in C
+- "C string" = byte array ending with '\0' (just a convention)
+- Crucial point, C has no built in string length, the length is no stored anywhere
+
