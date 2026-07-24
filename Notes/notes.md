@@ -56,3 +56,8 @@ int main(int argc, char *argv[])
 - "C string" = byte array ending with '\0' (just a convention)
 - Crucial point, C has no built in string length, the length is no stored anywhere
 
+### Char and String Arrays
+- `char something` -> a single character
+- `char something[]` -> array of characters (one string)
+- `char *something` -> a pointer to a character, very often used to point to a string
+- `char *something[]` -> array of char * (array of strings)
