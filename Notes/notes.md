@@ -48,9 +48,10 @@ int main(int argc, char *argv[])
 - `argv[2]` = "49"
 - `argv[1]` = "Oregon"
 
-### Char and Strings
+### Memory and Variable types
+- bit = 0 or 1
 - Byte = 8 bits
-- char = 1 byte (in practice)
+- char = 1 byte (in practice, as defined in C)
 - Byte array = char[] or unsigned char[]
 - There is no `string` type in C
 - "C string" = byte array ending with '\0' (just a convention)
