@@ -33,6 +33,76 @@ Both descriptions are correct — they mean the same thing:
 
 In C, a pointer is an address (with a type attached).
 
+"Since C passes arguments to functions by value, there is no direct way for the called function to alter a variable in the calling function" - pg 95
+- This means that when you call a function, the function receives a copy of the value, not the original variable.
+
+"Pointer arguments enable a function to access and change objects in the function that called it"
+- If you pass the address of a variable (a pointer), the function can reach back into the caller’s memory and change the original.
+
+Why C was designed this way
+- Passing by value is simple and safe by default. ***Functions can’t accidentally mess up the caller’s data.***
+- When you do want a function to modify something, you explicitly pass a pointer. ***This makes the intention clear.***
+
+There is one difference between an array name and a pointer that must be kept in mind.
+A pointer is a variable, so pa=a and pa++ are legal.  But an array name is not a variable;
+constructions like `a = pa` and `a++` are illegal.
+
+```C
+pa = a;           // fine – make pa point to the start of the array
+pa = &a[0];       // same thing
+pa++;             // fine – move the pointer to the next element
+pa = pa + 3;      // fine
+
+a = pa;           // ERROR – you can’t assign to an array name
+a++;              // ERROR – you can’t increment an array name
+a = a + 1;        // ERROR
+```
+
+When an array name is passed to a function, what is passed is the location of the initial element.
+
+In C there are essentially no guardrails for array and pointer bounds. C does not check array bounds at runtime.
+- The compiler will not stop you.
+- The runtime will not stop you.
+- You can read or write anywhere in memory the operating system allows your process to touch.
+
+This is both:
+- One of C’s greatest strengths (speed, control, simplicity)
+- One of its greatest dangers (buffer overflows, security holes, hard-to-find bugs)
+
+Languages like Python, Java, Rust, and Go put up strong guardrails. C deliberately does not.
+***That’s why so much emphasis is placed on careful pointer and array handling when learning C.***
+
+Some clever, intense, terse C syntax...
+```C
+// strcpy: copy to to s; pg 105, K&R
+void strcpy(char *s, char *t)
+{
+    while ((*s++ = *t++) != '\0');
+}
+
+// equivalent
+void strcpy(char *s, char *t)
+{
+    while (*t != '\0') {
+        *s = *t;
+        s++;
+        t++;
+    }
+    *s = '\0';          // copy the final null terminator
+}
+
+// also equivalent
+void strcpy(char *s, char *t)
+{
+    while (*s++ = *t++);
+}
+```
+
+This is one of those C rules you just have to learn.
+In C, an assignment is an expression, and every expression has a value.
+The value of an assignment expression is the value that was assigned.
+
+
 
 ## Notes from Zed
 
