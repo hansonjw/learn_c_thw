@@ -33,7 +33,7 @@ void die(const char *message) //simply exits the program
         printf("ERROR: %s\n", message);
     }
 
-    exit(1); //standard libary function in <stdio.h>; 1 signals something went wrong
+    exit(1); //standard libary function in <stdlib.h>; 1 signals something went wrong
 }
 
 void Address_print(struct Address *addr){
@@ -85,7 +85,7 @@ void Database_close(struct Connection *conn)
 
 void Database_write(struct Connection *conn)
 {
-    rewind(conn->file);
+    rewind(conn->file); // standard funciton in stdio.h
 
     int rc = fwrite(conn->db, sizeof(struct Database), 1, conn->file);
     if( rc != 1)
