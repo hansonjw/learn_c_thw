@@ -55,9 +55,13 @@ Bitwise *and* `&`
 
 Bitwise *or* `|`
 
-Bitwise *xor* `^`
+Bitwise *xor* or *exclusive or* `^`
 
-Bitwise *one's complement* `~`, flips all the bits (0->1, 1->0).
+Bitwise *one's complement* `~`, flips all the bits (0->1, 1->0)
+
+Shift left `<<`
+
+Shift right `>>`
 
 
 ### Assignment Operators
